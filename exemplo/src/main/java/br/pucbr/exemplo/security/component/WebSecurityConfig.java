@@ -26,17 +26,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.csrf().disable().authorizeRequests()
-                .antMatchers("/satplugin/**").permitAll()
                 .antMatchers("/public/**").permitAll()
                 .antMatchers("/h2-console/**").permitAll()
                 .antMatchers("/swagger-ui/**").permitAll()
-                .antMatchers("/actuator/**").permitAll()
-                .antMatchers("/v3/**").permitAll()
-                .antMatchers(HttpMethod.POST, "/public/satplugin/autenticacao").permitAll()
+                .antMatchers(HttpMethod.POST, "/public/exemplo/autenticacao").permitAll()
                 .anyRequest().authenticated().and()
 
                 // filtra requisições de login
-                .addFilterBefore(new JWTLoginFilter("/public/satplugin/autenticacao", authenticationManager()),
+                .addFilterBefore(new JWTLoginFilter("/public/exemplo/autenticacao", authenticationManager()),
                         UsernamePasswordAuthenticationFilter.class)
 
                 // filtra outras requisições para verificar a presença do JWT no header

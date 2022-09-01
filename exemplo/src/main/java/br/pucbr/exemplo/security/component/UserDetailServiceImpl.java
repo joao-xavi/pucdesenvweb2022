@@ -1,5 +1,11 @@
 package br.pucbr.exemplo.security.component;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,12 +18,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
-
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 
 @Component
 public class UserDetailServiceImpl implements UserDetailsService {
@@ -36,7 +36,14 @@ public class UserDetailServiceImpl implements UserDetailsService {
 
         try {
 
-            UserDetails u = getCustomUser(userName);
+            UserDetails u = new CustomUser("cleverson",
+                    "$2a$12$LlxKRPHgE2I41V9o2hcN5ud.4dRUA67QCZhDUbh9C6GevJBoyoPo2",
+                    true,
+                    true,
+                    true,
+                    true,
+                    new ArrayList<>(),
+                    null);
 
             logger.info("Username: " + userName + " encontrado.");
 
@@ -83,4 +90,3 @@ public class UserDetailServiceImpl implements UserDetailsService {
     }
 
 }
-
