@@ -18,9 +18,9 @@ public class Drinks {
     @Column(name = "DESCRICAO", nullable = false, unique = true)
     private String descricao;
 
-    @ManyToMany
-    @JoinColumn(name = "id")
-    private Ingredientes ingredienteId;
+    //@ManyToMany
+    //@JoinColumn(name = "id")
+    //private Ingredientes ingredienteId;
 
     public Integer getId() {
         return id;

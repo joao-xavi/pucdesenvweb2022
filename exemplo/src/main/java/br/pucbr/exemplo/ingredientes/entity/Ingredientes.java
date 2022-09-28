@@ -14,8 +14,8 @@ public class Ingredientes {
     private String nome;
 
 
-    @CollectionTable(name = "USUARIO" , joinColumns = @JoinColumn(name = "id"))
-    @Enumerated(EnumType.STRING)
+    //@CollectionTable(name = "DRINKS" , joinColumns = @JoinColumn(name = "id"))
+    //@Enumerated(EnumType.STRING)
 
 
 
