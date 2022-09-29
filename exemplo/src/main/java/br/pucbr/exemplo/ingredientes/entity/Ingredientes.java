@@ -13,6 +13,9 @@ public class Ingredientes {
     @Column(name = "NOME", nullable = false, unique = true)
     private String nome;
 
+    @Column(name = "CATEGORIA", unique = true)
+    private String categoria;
+
 
     //@CollectionTable(name = "DRINKS" , joinColumns = @JoinColumn(name = "id"))
     //@Enumerated(EnumType.STRING)
@@ -34,5 +37,13 @@ public class Ingredientes {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
     }
 }

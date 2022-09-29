@@ -41,7 +41,7 @@ public class DrinksController {
         try {
             Drinks drinks = drinksService.buscarPorId(id);
             return new ResponseEntity<>(drinks, HttpStatus.OK);
-        } catch (NoSuchElementException ex) {
+        } catch (NoSuchElementException | ExcecaoExemplo ex) {
             return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
         }
     }

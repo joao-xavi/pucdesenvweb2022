@@ -13,8 +13,8 @@ public class Harmonizacao {
     @Column(name = "NOME", nullable = false, unique = true)
     private String nome;
 
-    @Column(name = "LOGIN", nullable = false, unique = true)
-    private String login;
+    @Column(name = "DESCRICAO", nullable = false, unique = true)
+    private String descricao;
 
     public Integer getId() {
         return id;

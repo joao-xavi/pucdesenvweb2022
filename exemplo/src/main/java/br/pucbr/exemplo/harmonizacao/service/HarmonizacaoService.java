@@ -2,37 +2,49 @@ package br.pucbr.exemplo.harmonizacao.service;
 
 import br.pucbr.exemplo.harmonizacao.entity.Harmonizacao;
 import br.pucbr.exemplo.harmonizacao.repository.HarmonizacaoRepository;
+import br.pucbr.exemplo.ingredientes.entity.Ingredientes;
 import br.pucbr.exemplo.util.excecao.ExcecaoExemplo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 @Service
 public class HarmonizacaoService {
 
     @Autowired
-    private HarmonizacaoRepository usuarioRepository;
+    private HarmonizacaoRepository harmonizacaoRepository;
 
-    public Harmonizacao salvar(Harmonizacao usuario) throws ExcecaoExemplo {
-        if (usuario.getNome() == null || usuario.getNome().equals("") || usuario.getNome().length() > 300) {
-            //lanco um erro
-            throw new ExcecaoExemplo("ERR001","O dados dos usuário estão errados manow.");
+    public Harmonizacao salvar(Harmonizacao harmonizacao) throws ExcecaoExemplo {
+        if (harmonizacao.getNome() == null || harmonizacao.getNome().equals("")) {
+            throw new ExcecaoExemplo("ERR001","O dados não podem ser nulos.");
+        } else if (harmonizacao.getNome().length() > 30) {
+            throw new ExcecaoExemplo("ERRO04", "O nome da harmonização não pode conter mais que 30 caracteres.");
+        } else {
+            return harmonizacaoRepository.save(harmonizacao);
         }
-
-        return usuarioRepository.save(usuario);
     }
 
     public List<Harmonizacao> listar() {
-        return usuarioRepository.findAll();
+        return harmonizacaoRepository.findAll();
     }
 
-    public Harmonizacao buscarPorId(Integer id) {
-        return usuarioRepository.findById(id).get();
+    public Harmonizacao buscarPorId(Integer id) throws ExcecaoExemplo {
+        if( id == null) {
+            throw new ExcecaoExemplo("ERRO06", "Harmonização não encontrada.");
+        }
+
+        try {
+            Harmonizacao harmonizacao = harmonizacaoRepository.findById(id).get();
+        } catch (NoSuchElementException e) {
+            throw new ExcecaoExemplo("ERRO06", "Harmonização não encontrada.");
+        }
+        return harmonizacaoRepository.findById(id).get();
     }
 
     public void excluir(Integer id) {
-        usuarioRepository.deleteById(id);
+        harmonizacaoRepository.deleteById(id);
     }
 
 }

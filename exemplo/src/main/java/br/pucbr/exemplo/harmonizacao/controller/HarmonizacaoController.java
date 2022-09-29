@@ -41,7 +41,7 @@ public class HarmonizacaoController {
         try {
             Harmonizacao harmonizacao = harmonizacaoService.buscarPorId(id);
             return new ResponseEntity<>(harmonizacao, HttpStatus.OK);
-        } catch (NoSuchElementException ex) {
+        } catch (NoSuchElementException | ExcecaoExemplo ex) {
             return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
         }
     }

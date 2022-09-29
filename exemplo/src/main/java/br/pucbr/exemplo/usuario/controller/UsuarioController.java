@@ -47,7 +47,7 @@ public class UsuarioController {
         try {
             Usuario usuario = usuarioService.buscarPorId(id);
             return new ResponseEntity<>(usuario, HttpStatus.OK);
-        } catch (NoSuchElementException ex) {
+        } catch (NoSuchElementException | ExcecaoExemplo ex) {
             return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
         }
     }

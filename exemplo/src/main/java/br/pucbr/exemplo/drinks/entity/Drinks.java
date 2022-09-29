@@ -18,6 +18,9 @@ public class Drinks {
     @Column(name = "DESCRICAO", nullable = false, unique = true)
     private String descricao;
 
+    @Column(name = "CATEGORIA", nullable = false, unique = true)
+    private String categoria;
+
     //@ManyToMany
     //@JoinColumn(name = "id")
     //private Ingredientes ingredienteId;
@@ -46,4 +49,11 @@ public class Drinks {
         this.descricao = descricao;
     }
 
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
 }
