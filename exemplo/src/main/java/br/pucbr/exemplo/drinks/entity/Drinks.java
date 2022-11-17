@@ -21,6 +21,9 @@ public class Drinks {
     @Column(name = "CATEGORIA", nullable = false, unique = true)
     private String categoria;
 
+    @Column(name = "IMAGEM", nullable = false, unique = true)
+    private String imagem;
+
     //@ManyToMany
     //@JoinColumn(name = "id")
     //private Ingredientes ingredienteId;

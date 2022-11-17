@@ -16,6 +16,9 @@ public class Ingredientes {
     @Column(name = "CATEGORIA", unique = true)
     private String categoria;
 
+    @Column(name = "IMAGEM", nullable = false, unique = true)
+    private String imagem;
+
 
     //@CollectionTable(name = "DRINKS" , joinColumns = @JoinColumn(name = "id"))
     //@Enumerated(EnumType.STRING)

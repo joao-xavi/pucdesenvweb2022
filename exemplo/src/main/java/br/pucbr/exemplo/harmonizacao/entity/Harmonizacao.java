@@ -16,6 +16,9 @@ public class Harmonizacao {
     @Column(name = "DESCRICAO", nullable = false, unique = true)
     private String descricao;
 
+    @Column(name = "IMAGEM", nullable = false, unique = true)
+    private String imagem;
+
     public Integer getId() {
         return id;
     }
