@@ -1,4 +1,4 @@
-export class Harmonizacao {
+export class Ingredientes {
     id: number;
     nome: string;
     descricao: string;

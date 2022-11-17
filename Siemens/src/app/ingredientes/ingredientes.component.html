@@ -1,3 +1,67 @@
-<p>
-  ingredientes works!
-</p>
+<div class="row">
+
+  <div class="col-sm-6" *ngIf="ingredientesSelected">
+    <div class="row">
+      <div class="mr-auto">
+        <app-titulo [titulo]="'Cód. Ingredientes: ' + ingredientesSelected.id"></app-titulo>
+      </div>
+      <div class="mt-1">
+        <button class="btn btn-sm btn-outline-danger" (click)="voltar()">
+          Fechar
+        </button>
+      </div>
+    </div>
+
+    <form [formGroup]="ingredientesForm" (submit)="ingredientesSubmit()">
+      <div class="form-group">
+        <label for="formGroupExampleInput">Nome</label>
+        <input type="text" formControlName="nome" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="formGroupExampleInput2">Descrição</label>
+        <input type="text" formControlName="descricao"  class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="formGroupExampleInput2">Categoria</label>
+        <input type="password" formControlName="categoria"  class="form-control">
+      </div>
+      <div class="form-group">
+        <hr>
+        <button class="btn btn-success" [disabled]="!ingredientesForm.valid">Enviar</button>
+      </div>
+    </form>
+  </div>
+
+  <div [ngClass]="{'col-sm-6': ingredientesSelected, 'col-sm-12': !ingredientesSelected}">
+    <app-titulo [titulo]="titulo"></app-titulo>
+
+    <table class="table table-hover">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">Visualizar</th>
+          <th scope="col">#</th>
+          <th scope="col">Nome</th>
+          <th scope="col">Descrição</th>
+          <th scope="col">Excluir</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let ingrediente of ingredientes">
+          <td><button (click)="ingredientesSelect(ingrediente)"
+            class="text-dark btn btn-sm btn-outline-warning">Detalhes</button></td>
+            <td scope="row">{{ingrediente.id}}</td>
+            <td>{{ingrediente.nome}}</td>
+            <td>{{ingrediente.descricao}}</td>
+            <td>{{ingrediente.categoria}}</td>
+            <!-- <td>{{ingredientes.imagem}}</td> -->
+            <div class="btn-group">
+              <button (click)="ingredientesDelete(ingrediente)" class="btn btn-sm btn-outline-danger">Excluir</button>
+            </div>
+          
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+

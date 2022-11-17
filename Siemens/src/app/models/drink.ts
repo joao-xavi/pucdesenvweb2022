@@ -3,4 +3,5 @@ export class Drink {
     nome: string;
     descricao: string;
     categoria: string;
+    imagem: string;
 }

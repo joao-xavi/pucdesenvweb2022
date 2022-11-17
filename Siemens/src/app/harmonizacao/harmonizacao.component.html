@@ -18,12 +18,12 @@
         <input type="text" formControlName="nome" class="form-control">
       </div>
       <div class="form-group">
-        <label for="formGroupExampleInput2">Login</label>
-        <input type="text" formControlName="sexo"  class="form-control">
+        <label for="formGroupExampleInput2">Descrição</label>
+        <input type="text" formControlName="descricao"  class="form-control">
       </div>
       <div class="form-group">
-        <label for="formGroupExampleInput2">Senha</label>
-        <input type="password" formControlName="dataNasc"  class="form-control">
+        <label for="formGroupExampleInput2">Categoria</label>
+        <input type="password" formControlName="categoria"  class="form-control">
       </div>
       <div class="form-group">
         <hr>
@@ -41,8 +41,7 @@
           <th scope="col">Visualizar</th>
           <th scope="col">#</th>
           <th scope="col">Nome</th>
-          <th scope="col">Descricao</th>
-          <th scope="col">Categoria</th>
+          <th scope="col">Descrição</th>
           <th scope="col">Excluir</th>
         </tr>
       </thead>
@@ -54,7 +53,7 @@
           <td>{{harmonizacao.nome}}</td>
           <td>{{harmonizacao.descricao}}</td>
           <td>{{harmonizacao.categoria}}</td>
-
+          <td>{{harmonizacao.imagem}}</td>
           <td>
             <div class="btn-group">
               <button (click)="harmonizacaoDelete(harmonizacao)" class="btn btn-sm btn-outline-danger">Excluir</button>
