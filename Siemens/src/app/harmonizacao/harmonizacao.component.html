@@ -1,0 +1,69 @@
+<div class="row">
+
+  <div class="col-sm-6" *ngIf="harmonizacaoSelected">
+    <div class="row">
+      <div class="mr-auto">
+        <app-titulo [titulo]="'Cód. Harmonizacao: ' + harmonizacaoSelected.id"></app-titulo>
+      </div>
+      <div class="mt-1">
+        <button class="btn btn-sm btn-outline-danger" (click)="voltar()">
+          Fechar
+        </button>
+      </div>
+    </div>
+
+    <form [formGroup]="harmonizacaoForm" (submit)="harmonizacaoSubmit()">
+      <div class="form-group">
+        <label for="formGroupExampleInput">Nome</label>
+        <input type="text" formControlName="nome" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="formGroupExampleInput2">Login</label>
+        <input type="text" formControlName="sexo"  class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="formGroupExampleInput2">Senha</label>
+        <input type="password" formControlName="dataNasc"  class="form-control">
+      </div>
+      <div class="form-group">
+        <hr>
+        <button class="btn btn-success" [disabled]="!harmonizacaoForm.valid">Enviar</button>
+      </div>
+    </form>
+  </div>
+
+  <div [ngClass]="{'col-sm-6': harmonizacaoSelected, 'col-sm-12': !harmonizacaoSelected}">
+    <app-titulo [titulo]="titulo"></app-titulo>
+
+    <table class="table table-hover">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">Visualizar</th>
+          <th scope="col">#</th>
+          <th scope="col">Nome</th>
+          <th scope="col">Descricao</th>
+          <th scope="col">Categoria</th>
+          <th scope="col">Excluir</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let harmonizacao of harmonizacoes">
+          <td><button (click)="harmonizacaoSelect(harmonizacao)"
+            class="text-dark btn btn-sm btn-outline-warning">Detalhe</button></td>
+          <td scope="row">{{harmonizacao.id}}</td>
+          <td>{{harmonizacao.nome}}</td>
+          <td>{{harmonizacao.descricao}}</td>
+          <td>{{harmonizacao.categoria}}</td>
+
+          <td>
+            <div class="btn-group">
+              <button (click)="harmonizacaoDelete(harmonizacao)" class="btn btn-sm btn-outline-danger">Excluir</button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+

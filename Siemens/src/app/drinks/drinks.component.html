@@ -1,0 +1,67 @@
+<div class="row">
+
+  <div class="col-sm-6" *ngIf="drinkSelected">
+    <div class="row">
+      <div class="mr-auto">
+        <app-titulo [titulo]="'Cód. Cliente: ' + drinkSelected.id"></app-titulo>
+      </div>
+      <div class="mt-1">
+        <button class="btn btn-sm btn-outline-danger" (click)="voltar()">
+          Fechar
+        </button>
+      </div>
+    </div>
+
+    <form [formGroup]="drinkForm" (submit)="drinkSubmit()">
+      <div class="form-group">
+        <label for="formGroupExampleInput">Nome</label>
+        <input type="text" formControlName="nome" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="formGroupExampleInput2">Login</label>
+        <input type="text" formControlName="sexo"  class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="formGroupExampleInput2">Senha</label>
+        <input type="password" formControlName="dataNasc"  class="form-control">
+      </div>
+      <div class="form-group">
+        <hr>
+        <button class="btn btn-success" [disabled]="!drinkForm.valid">Enviar</button>
+      </div>
+    </form>
+  </div>
+
+  <div [ngClass]="{'col-sm-6': drinkSelected, 'col-sm-12': !drinkSelected}">
+    <app-titulo [titulo]="titulo"></app-titulo>
+
+    <table class="table table-hover">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">Visualizar</th>
+          <th scope="col">#</th>
+          <th scope="col">Nome</th>
+          <th scope="col">Login</th>
+          <th scope="col">Excluir</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let drink of drinks">
+          <td><button (click)="drinkSelect(drink)"
+            class="text-dark btn btn-sm btn-outline-warning">Detalhe</button></td>
+          <td scope="row">{{drink.id}}</td>
+          <td>{{drink.nome}}</td>
+          <td>{{drink.descricao}}</td>
+          <td>{{drink.categoria}}</td>
+          <td>
+            <div class="btn-group">
+              <button (click)="drinkDelete(drink)" class="btn btn-sm btn-outline-danger">Excluir</button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
