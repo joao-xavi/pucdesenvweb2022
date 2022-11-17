@@ -2,6 +2,7 @@ package br.pucbr.exemplo.ingredientes.controller;
 
 import br.pucbr.exemplo.ingredientes.entity.Ingredientes;
 import br.pucbr.exemplo.ingredientes.service.IngredientesService;
+import br.pucbr.exemplo.util.base.BaseController;
 import br.pucbr.exemplo.util.excecao.ExcecaoExemplo;
 import io.swagger.v3.oas.annotations.enums.SecuritySchemeType;
 import io.swagger.v3.oas.annotations.security.SecurityScheme;
@@ -14,13 +15,15 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 @RestController
+
+
 @RequestMapping("/ingredientes")
 @SecurityScheme(
         name = "Bearer",
         type = SecuritySchemeType.HTTP,
         scheme = "bearer"
 )
-public class IngredientesController {
+public class IngredientesController extends BaseController {
 
     @Autowired
     IngredientesService ingredientesService;

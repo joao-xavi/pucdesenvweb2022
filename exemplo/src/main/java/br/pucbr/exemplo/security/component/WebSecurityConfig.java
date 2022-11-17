@@ -26,14 +26,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.csrf().disable().authorizeRequests()
-                .antMatchers("/public/**").permitAll()
+                //.antMatchers("/**").permitAll()
                 .antMatchers("/h2-console/**").permitAll()
                 .antMatchers("/swagger-ui/**").permitAll()
-                .antMatchers(HttpMethod.POST, "/public/exemplo/autenticacao").permitAll()
+                .antMatchers(HttpMethod.POST, "/public/birita/autenticacao").permitAll()
                 .anyRequest().authenticated().and()
 
                 // filtra requisições de login
-                .addFilterBefore(new JWTLoginFilter("/public/exemplo/autenticacao", authenticationManager()),
+                .addFilterBefore(new JWTLoginFilter("/public/birita/autenticacao", authenticationManager()),
                         UsernamePasswordAuthenticationFilter.class)
 
                 // filtra outras requisições para verificar a presença do JWT no header

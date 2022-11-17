@@ -2,6 +2,7 @@ package br.pucbr.exemplo.drinks.controller;
 
 import br.pucbr.exemplo.drinks.entity.Drinks;
 import br.pucbr.exemplo.drinks.service.DrinksService;
+import br.pucbr.exemplo.util.base.BaseController;
 import br.pucbr.exemplo.util.excecao.ExcecaoExemplo;
 import io.swagger.v3.oas.annotations.enums.SecuritySchemeType;
 import io.swagger.v3.oas.annotations.security.SecurityScheme;
@@ -20,7 +21,7 @@ import java.util.NoSuchElementException;
         type = SecuritySchemeType.HTTP,
         scheme = "bearer"
 )
-public class DrinksController {
+public class DrinksController extends BaseController {
 
     @Autowired
     DrinksService drinksService;

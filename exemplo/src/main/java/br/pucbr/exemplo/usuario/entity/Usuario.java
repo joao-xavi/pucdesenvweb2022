@@ -1,5 +1,7 @@
 package br.pucbr.exemplo.usuario.entity;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

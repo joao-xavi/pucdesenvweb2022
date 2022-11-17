@@ -29,7 +29,7 @@ public class TokenAuthenticationService {
                                         Collection<? extends GrantedAuthority> authorities, Integer guidUsuario) {
         String token = Jwts.builder()
                 .setSubject(username)
-                 .setExpiration(new Date(System.currentTimeMillis() + EXPIRATION_TIME))
+                .setExpiration(new Date(System.currentTimeMillis() + EXPIRATION_TIME))
                 .signWith(SignatureAlgorithm.HS512, SECRET).compact();
 
         Autenticacao autenticacao = new Autenticacao();
