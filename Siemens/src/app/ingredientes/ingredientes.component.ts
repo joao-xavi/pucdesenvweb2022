@@ -41,7 +41,8 @@ export class IngredientesComponent implements OnInit {
     this.ingredientesForm = this.fb.group({
       id: [''],
       nome: [''],
-      login: [''],
+      categoria: [''],
+      imagem: [''],
     });
   }
   
