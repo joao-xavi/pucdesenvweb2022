@@ -15,24 +15,55 @@ export class HarmonizacaoService {
   constructor(private http: HttpClient) { }
 
   getAll(): Observable<Harmonizacao[]> {
-    return this.http.get<Harmonizacao[]>(`${this.defaultUrl}`);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+        Authorization: 'Bearer ' + localStorage.getItem('currentToken')
+      })
+    }
+    return this.http.get<Harmonizacao[]>(`${this.defaultUrl}`,httpOptions);
   }
 
   getById(id:number): Observable<Harmonizacao> {
-    return this.http.get<Harmonizacao>(`${this.defaultUrl}/${id}`);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+        Authorization: 'Bearer ' + localStorage.getItem('currentToken')
+      })
+    }
+    return this.http.get<Harmonizacao>(`${this.defaultUrl}/${id}`, httpOptions);
   }
 
   post(harmonizacao: Harmonizacao) {
-    return this.http.post(`${this.defaultUrl}`, harmonizacao);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+        Authorization: 'Bearer ' + localStorage.getItem('currentToken')
+      })
+    }
+    return this.http.post(`${this.defaultUrl}`, harmonizacao, httpOptions);
   }
+  
 
   put(id: number, harmonizacao: Harmonizacao) {
-    return this.http.put(`${this.defaultUrl}/${id}`, harmonizacao);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+        Authorization: 'Bearer ' + localStorage.getItem('currentToken')
+      })
+    }
+    return this.http.put(`${this.defaultUrl}/${id}`, harmonizacao, httpOptions);
   }
 
   delete(id:number) {
-    return this.http.delete(`${this.defaultUrl}/${id}`);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+        Authorization: 'Bearer ' + localStorage.getItem('currentToken')
+      })
+    }
+    return this.http.delete(`${this.defaultUrl}/${id}`, httpOptions);
   }
 
-
 }
+

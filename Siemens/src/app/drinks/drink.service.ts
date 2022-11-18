@@ -15,23 +15,53 @@ export class DrinkService {
   constructor(private http: HttpClient) { }
 
   getAll(): Observable<Drink[]> {
-    return this.http.get<Drink[]>(`${this.defaultUrl}`);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+        Authorization: 'Bearer ' + localStorage.getItem('currentToken')
+      })
+    }
+    return this.http.get<Drink[]>(`${this.defaultUrl}`,httpOptions);
   }
 
   getById(id:number): Observable<Drink> {
-    return this.http.get<Drink>(`${this.defaultUrl}/${id}`);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+        Authorization: 'Bearer ' + localStorage.getItem('currentToken')
+      })
+    }
+    return this.http.get<Drink>(`${this.defaultUrl}/${id}`, httpOptions);
   }
 
   post(drink: Drink) {
-    return this.http.post(`${this.defaultUrl}`, drink);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+        Authorization: 'Bearer ' + localStorage.getItem('currentToken')
+      })
+    }
+    return this.http.post(`${this.defaultUrl}`, drink, httpOptions);
   }
 
   put(id: number, drink: Drink) {
-    return this.http.put(`${this.defaultUrl}/${id}`, drink);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+        Authorization: 'Bearer ' + localStorage.getItem('currentToken')
+      })
+    }
+    return this.http.put(`${this.defaultUrl}/${id}`, drink, httpOptions);
   }
 
   delete(id:number) {
-    return this.http.delete(`${this.defaultUrl}/${id}`);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+        Authorization: 'Bearer ' + localStorage.getItem('currentToken')
+      })
+    }
+    return this.http.delete(`${this.defaultUrl}/${id}`, httpOptions);
   }
 
 

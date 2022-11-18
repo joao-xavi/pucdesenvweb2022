@@ -15,23 +15,53 @@ export class IngredientesService {
   constructor(private http: HttpClient) { }
 
   getAll(): Observable<Ingredientes[]> {
-    return this.http.get<Ingredientes[]>(`${this.defaultUrl}`);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+        Authorization: 'Bearer ' + localStorage.getItem('currentToken')
+      })
+    }
+    return this.http.get<Ingredientes[]>(`${this.defaultUrl}`,httpOptions);
   }
 
   getById(id:number): Observable<Ingredientes> {
-    return this.http.get<Ingredientes>(`${this.defaultUrl}/${id}`);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+        Authorization: 'Bearer ' + localStorage.getItem('currentToken')
+      })
+    }
+    return this.http.get<Ingredientes>(`${this.defaultUrl}/${id}`, httpOptions);
   }
 
   post(ingredientes: Ingredientes) {
-    return this.http.post(`${this.defaultUrl}`, ingredientes);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+        Authorization: 'Bearer ' + localStorage.getItem('currentToken')
+      })
+    }
+    return this.http.post(`${this.defaultUrl}`, ingredientes, httpOptions);
   }
 
   put(id: number, ingredientes: Ingredientes) {
-    return this.http.put(`${this.defaultUrl}/${id}`, ingredientes);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+        Authorization: 'Bearer ' + localStorage.getItem('currentToken')
+      })
+    }
+    return this.http.put(`${this.defaultUrl}/${id}`, ingredientes, httpOptions);
   }
 
   delete(id:number) {
-    return this.http.delete(`${this.defaultUrl}/${id}`);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+        Authorization: 'Bearer ' + localStorage.getItem('currentToken')
+      })
+    }
+    return this.http.delete(`${this.defaultUrl}/${id}`, httpOptions);
   }
 
 
