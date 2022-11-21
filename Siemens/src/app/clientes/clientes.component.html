@@ -68,7 +68,8 @@
         </form>
       </div>
       <div [ngClass]="{'col-sm-6': clienteSelected, 'col-sm-12': !clienteSelected}">
-        
+      <div *ngIf="!addCliente">
+
       <div class="container">
         <div class="row align-items-center">
           <div class="col-sm-6">
@@ -106,6 +107,7 @@
         </tbody>
       </table>
     </div>
+  </div>
   
   </div>
   
