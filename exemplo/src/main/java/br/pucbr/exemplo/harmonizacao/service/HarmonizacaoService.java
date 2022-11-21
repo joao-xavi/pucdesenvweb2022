@@ -19,7 +19,7 @@ public class HarmonizacaoService {
     public Harmonizacao salvar(Harmonizacao harmonizacao) throws ExcecaoExemplo {
         if (harmonizacao.getNome() == null || harmonizacao.getNome().equals("")) {
             throw new ExcecaoExemplo("ERR001","O dados não podem ser nulos.");
-        } else if (harmonizacao.getNome().length() > 30) {
+        } else if (harmonizacao.getNome().length() > 100) {
             throw new ExcecaoExemplo("ERRO04", "O nome da harmonização não pode conter mais que 30 caracteres.");
         } else {
             return harmonizacaoRepository.save(harmonizacao);

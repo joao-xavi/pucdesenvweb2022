@@ -18,7 +18,7 @@ public class Drinks {
     @Column(name = "DESCRICAO", nullable = false, unique = true)
     private String descricao;
 
-    @Column(name = "CATEGORIA", nullable = false, unique = true)
+    @Column(name = "CATEGORIA", nullable = false, unique = false)
     private String categoria;
 
     @Column(name = "IMAGEM", nullable = false, unique = true)

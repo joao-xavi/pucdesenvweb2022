@@ -13,7 +13,7 @@ public class Ingredientes {
     @Column(name = "NOME", nullable = false, unique = true)
     private String nome;
 
-    @Column(name = "CATEGORIA", unique = true)
+    @Column(name = "CATEGORIA", unique = false)
     private String categoria;
 
     @Column(name = "IMAGEM", nullable = false, unique = true)

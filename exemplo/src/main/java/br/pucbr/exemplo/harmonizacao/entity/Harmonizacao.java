@@ -16,6 +16,9 @@ public class Harmonizacao {
     @Column(name = "DESCRICAO", nullable = false, unique = true)
     private String descricao;
 
+    @Column(name = "BEBIDA", nullable = false)
+    private String bebida;
+
     @Column(name = "IMAGEM", nullable = false, unique = true)
     private String imagem;
 
@@ -49,5 +52,13 @@ public class Harmonizacao {
 
     public void setImagem(String imagem) {
         this.imagem = imagem;
+    }
+
+    public String getBebida() {
+        return bebida;
+    }
+
+    public void setBebida(String bebida) {
+        this.bebida = bebida;
     }
 }
