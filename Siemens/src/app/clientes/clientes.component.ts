@@ -13,6 +13,7 @@ export class ClientesComponent implements OnInit {
   public clienteForm!: FormGroup;
   public titulo = 'Clientes';
   public clienteSelected: Cliente;
+  public addCliente = false;
   public modeSave = 'post';
 
   public clientes: Cliente[];
@@ -42,6 +43,7 @@ export class ClientesComponent implements OnInit {
       id: [''],
       nome: [''],
       login: [''],
+      senha: ['']
     });
   }
   
@@ -55,6 +57,10 @@ export class ClientesComponent implements OnInit {
         console.log(erro)
       }
     );
+  }
+
+  clienteAdd() {
+    this.createCliente(this.clienteForm.value);
   }
 
   saveCliente(cliente: Cliente) {
@@ -87,6 +93,7 @@ export class ClientesComponent implements OnInit {
 
   clienteSelect(cliente: Cliente) {
     this.modeSave = 'put';
+    this.addCliente = false;
     this.clienteSelected = cliente;
     this.clienteForm.patchValue(cliente);
   }
@@ -97,6 +104,16 @@ export class ClientesComponent implements OnInit {
   }
 
   voltar() {
+    this.clienteSelected = null;
+  }
+
+  voltarAdd() {
+    this.addCliente = false;
+  }
+
+  addClienteTela() {
+    this.modeSave = 'post';
+    this.addCliente = true;
     this.clienteSelected = null;
   }
 

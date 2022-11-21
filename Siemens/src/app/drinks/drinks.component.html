@@ -11,7 +11,7 @@
         </button>
       </div>
     </div>
-
+    
     <form [formGroup]="drinkForm" (submit)="drinkSubmit()">
       <div class="form-group">
         <label for="formGroupExampleInput">Nome</label>
@@ -36,7 +36,7 @@
     </form>
   </div>
 
-  <div [ngClass]="{'col-sm-6': drinkSelected, 'col-sm-12': !drinkSelected}">
+  <div [ngClass]="{'col-sm-6': drinkSelected || drinkAdd, 'col-sm-12': !drinkSelected || !drinkAdd}">
     <app-titulo [titulo]="titulo"></app-titulo>
 
     <table class="table table-hover">
@@ -46,6 +46,8 @@
           <th scope="col">#</th>
           <th scope="col">Nome</th>
           <th scope="col">Descrição</th>
+          <th scope="col">Categoria</th>
+          <th scope="col">Imagem </th>
           <th scope="col">Excluir</th>
         </tr>
       </thead>

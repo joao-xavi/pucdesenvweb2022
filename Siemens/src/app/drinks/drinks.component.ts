@@ -14,6 +14,8 @@ export class DrinksComponent implements OnInit {
   public titulo = 'Drinks';
   public drinkSelected: Drink;
   public modeSave = 'post';
+  public addDrink = false;
+
 
   public drinks: Drink[];
 
@@ -41,7 +43,10 @@ export class DrinksComponent implements OnInit {
     this.drinkForm = this.fb.group({
       id: [''],
       nome: [''],
-      login: [''],
+      descricao: [''],
+      categoria: [''],
+      imagem: [''],
+
     });
   }
   
@@ -85,6 +90,10 @@ export class DrinksComponent implements OnInit {
     this.saveDrink(this.drinkForm.value);
   }
 
+  drinkAdd() {
+    this.createDrink(this.drinkForm.value);
+  }
+
   drinkSelect(drink: Drink) {
     this.modeSave = 'put';
     this.drinkSelected = drink;
@@ -98,6 +107,15 @@ export class DrinksComponent implements OnInit {
 
   voltar() {
     this.drinkSelected = null;
+  }
+
+  voltarAdd() {
+    this.addDrink = null;
+  }
+
+  addDrinks() {
+    this.modeSave = 'post';
+    this.addDrink = true;
   }
 
   
