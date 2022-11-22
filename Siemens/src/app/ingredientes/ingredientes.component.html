@@ -31,21 +31,56 @@
       </div>
     </form>
   </div>
-  <div *ngIf="!addIngredientes">
 
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-sm-6">
-        <app-titulo [titulo]="titulo"></app-titulo>
-        </div>
-        <div class="col-sm-6 align-items-center">
-        <button type="button" class="col-sm-3 btn btn-info" (click)="addIngredientesTela()">Adicionar Ingrediente</button>
-        </div>
+  <div class="col-sm-6" *ngIf="addIngredientes">
+    <div class="row">
+      <div class="mr-auto">
+        <h1>Adicionar ingrediente</h1>
       </div>
     </div>
-  <!-- <div [ngClass]="{'col-sm-6': ingredientesSelected, 'col-sm-12': !ingredientesSelected}">
-    <app-titulo [titulo]="titulo"></app-titulo> -->
 
+    <form [formGroup]="ingredientesForm" (submit)="ingredientesAdd()">
+      <div class="form-group">
+        <label for="formGroupExampleInput">Nome</label>
+        <input type="text" formControlName="nome" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="formGroupExampleInput2">Categoria</label>
+        <input type="text" formControlName="categoria"  class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="formGroupExampleInput2">Link Imagem</label>
+        <input type="text" formControlName="imagem"  class="form-control">
+      </div>
+      <div class="form-group">
+          <div class="row align-items-center">
+            <div class="col-sm-6">
+              <button class="btn btn-success" [disabled]="!ingredientesForm.valid">Enviar</button>
+            </div>
+            <div class="col-sm-6">
+              <button class="btn btn-sm btn-danger" (click)="voltarAdd()">
+                  Fechar
+              </button>
+            </div>
+          </div>
+      </div>
+    </form>
+  </div>
+
+  <div [ngClass]="{'col-sm-6': ingredientesSelected, 'col-sm-12': !ingredientesSelected}">
+    <div *ngIf="!addIngredientes">
+   <div class="container">
+        <div class="row align-items-center">
+          <div class="col-sm-6">
+          <app-titulo [titulo]="titulo"></app-titulo>
+          </div>
+          <div class="col-sm-6 align-items-center">
+          <button type="button" class="col-sm-3 btn btn-info" (click)="addIngredientesTela()">Adicionar Ingrediente</button>
+          </div>
+        </div>
+      </div>
+
+  <div *ngIf="!addIngredientes">
     <table class="table table-hover">
       <thead class="thead-light">
         <tr>
@@ -64,11 +99,9 @@
             <div class="btn-group">
               <button (click)="ingredientesDelete(ingrediente)" class="btn btn-sm btn-outline-danger">Excluir</button>
             </div>
-          
         </tr>
       </tbody>
     </table>
   </div>
-
 </div>
 

@@ -44,14 +44,14 @@ export class IngredientesService {
     return this.http.post(`${this.defaultUrl}`, ingredientes, httpOptions);
   }
 
-  put(id: number, ingredientes: Ingredientes) {
+  update(id: number, ingredientes: Ingredientes) {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type':  'application/json',
         Authorization: 'Bearer ' + localStorage.getItem('currentToken')
       })
     }
-    return this.http.put(`${this.defaultUrl}/${id}`, ingredientes, httpOptions);
+    return this.http.post(`${this.defaultUrl}`, ingredientes, httpOptions);
   }
 
   delete(id:number) {

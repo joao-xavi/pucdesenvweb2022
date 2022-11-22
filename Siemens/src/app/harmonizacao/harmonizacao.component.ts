@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Cliente } from '../models/cliente';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { HarmonizacaoService } from './harmonizacao.service';
 import { Harmonizacao } from '../models/harmonizacao';
 
@@ -55,6 +55,7 @@ export class HarmonizacaoComponent implements OnInit {
     this.harmonizacaoService.post(harmonizacao).subscribe(
       (harmonizacao) => {
         console.log(harmonizacao);
+        this.addHarmonizacao = null;
         this.carregarHarmonizacao();
       },
       (erro: any) => {
@@ -64,7 +65,7 @@ export class HarmonizacaoComponent implements OnInit {
   }
 
   saveHarmonizacao(harmonizacao: Harmonizacao) {
-    this.harmonizacaoService.put(harmonizacao.id, harmonizacao).subscribe(
+    this.harmonizacaoService.update(harmonizacao.id, harmonizacao).subscribe(
       (harmonizacao) => {
         console.log(harmonizacao);
         this.carregarHarmonizacao();
@@ -91,6 +92,12 @@ export class HarmonizacaoComponent implements OnInit {
     this.saveHarmonizacao(this.harmonizacaoForm.value);
   }
 
+  
+  harmonizacaoAdd() {
+    this.createHarmonizacao(this.harmonizacaoForm.value);
+  }
+
+
   harmonizacaoSelect(harmonizacao: Harmonizacao) {
     this.modeSave = 'put';
     this.harmonizacaoSelected = harmonizacao;
@@ -98,13 +105,17 @@ export class HarmonizacaoComponent implements OnInit {
     this.harmonizacaoForm.patchValue(harmonizacao);
   }
 
-  async harmonizacaoDelete(harmonizacao: Harmonizacao) {
-    this.harmonizacaoDelete(harmonizacao);
-    this.harmonizacaoForm.patchValue(harmonizacao);
-  }
+  // async harmonizacaoDelete(harmonizacao: Harmonizacao) {
+  //   this.harmonizacaoDelete(harmonizacao);
+  //   this.harmonizacaoForm.patchValue(harmonizacao);
+  // }
 
   voltar() {
     this.addHarmonizacao = false;
+  }
+
+  voltarAdd() {
+    this.addHarmonizacao = null;
   }
 
   addHarmonizacaoTela() {

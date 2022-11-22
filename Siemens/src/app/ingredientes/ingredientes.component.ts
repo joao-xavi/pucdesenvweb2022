@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Ingredientes } from '../models/ingredientes';
 import { IngredientesService } from './ingredientes.service';
 
@@ -51,6 +51,7 @@ export class IngredientesComponent implements OnInit {
     this.ingredientesService.post(ingredientes).subscribe(
       (ingredientes) => {
         console.log(ingredientes);
+        this.addIngredientes = null;
         this.carregarIngredientes();
       },
       (erro: any) => {
@@ -60,7 +61,7 @@ export class IngredientesComponent implements OnInit {
   }
 
   saveIngredientes(ingredientes: Ingredientes) {
-    this.ingredientesService.put(ingredientes.id, ingredientes).subscribe(
+    this.ingredientesService.update(ingredientes.id, ingredientes).subscribe(
       (ingredientes) => {
         console.log(ingredientes);
         this.carregarIngredientes();
@@ -87,10 +88,13 @@ export class IngredientesComponent implements OnInit {
     this.saveIngredientes(this.ingredientesForm.value);
   }
 
+  ingredientesAdd() {
+    this.createIngredientes(this.ingredientesForm.value);
+  }
+
   ingredientesSelect(ingredientes: Ingredientes) {
     this.modeSave = 'put';
     this.ingredientesSelected = ingredientes;
-    this.addIngredientes = false;
     this.ingredientesForm.patchValue(ingredientes);
   }
 
@@ -101,6 +105,10 @@ export class IngredientesComponent implements OnInit {
 
   voltar() {
     this.addIngredientes = false;
+  }
+
+  voltarAdd() {
+    this.addIngredientes = null;
   }
 
   addIngredientesTela() {

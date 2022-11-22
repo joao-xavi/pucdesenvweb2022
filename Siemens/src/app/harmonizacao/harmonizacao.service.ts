@@ -45,16 +45,16 @@ export class HarmonizacaoService {
   }
   
 
-  put(id: number, harmonizacao: Harmonizacao) {
+  update(id: number, harmonizacao: Harmonizacao) {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type':  'application/json',
         Authorization: 'Bearer ' + localStorage.getItem('currentToken')
       })
     }
-    return this.http.put(`${this.defaultUrl}/${id}`, harmonizacao, httpOptions);
+    return this.http.post(`${this.defaultUrl}`, harmonizacao, httpOptions);
   }
-
+  
   delete(id:number) {
     const httpOptions = {
       headers: new HttpHeaders({
