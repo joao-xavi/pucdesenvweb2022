@@ -51,6 +51,7 @@ export class ClientesComponent implements OnInit {
     this.clienteService.post(cliente).subscribe(
       (cliente) => {
         console.log(cliente);
+        this.addCliente = false;
         this.carregarClientes();
       },
       (erro: any) => {
@@ -64,7 +65,7 @@ export class ClientesComponent implements OnInit {
   }
 
   saveCliente(cliente: Cliente) {
-    this.clienteService.put(cliente.id, cliente).subscribe(
+    this.clienteService.update(cliente.id, cliente).subscribe(
       (cliente) => {
         console.log(cliente);
         this.carregarClientes();
@@ -92,7 +93,7 @@ export class ClientesComponent implements OnInit {
   }
 
   clienteSelect(cliente: Cliente) {
-    this.modeSave = 'put';
+    this.modeSave = 'post';
     this.addCliente = false;
     this.clienteSelected = cliente;
     this.clienteForm.patchValue(cliente);

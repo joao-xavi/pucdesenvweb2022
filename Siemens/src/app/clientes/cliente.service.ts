@@ -44,14 +44,14 @@ export class ClienteService {
     return this.http.post(`${this.defaultUrl}`, cliente, httpOptions);
   }
 
-  put(id: number, cliente: Cliente) {
+  update(id: number, cliente: Cliente) {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type':  'application/json',
         Authorization: 'Bearer ' + localStorage.getItem('currentToken')
       })
     }
-    return this.http.put(`${this.defaultUrl}/${id}`, cliente, httpOptions);
+    return this.http.post(`${this.defaultUrl}`, cliente, httpOptions);
   }
 
   delete(id:number) {

@@ -54,6 +54,7 @@ export class DrinksComponent implements OnInit {
     this.drinkService.post(drink).subscribe(
       (drink) => {
         console.log(drink);
+        this.addDrink = null;
         this.carregarDrinks();
       },
       (erro: any) => {
@@ -63,7 +64,7 @@ export class DrinksComponent implements OnInit {
   }
 
   saveDrink(drink: Drink) {
-    this.drinkService.put(drink.id, drink).subscribe(
+    this.drinkService.update(drink.id, drink).subscribe(
       (drink) => {
         console.log(drink);
         this.carregarDrinks();

@@ -44,14 +44,14 @@ export class DrinkService {
     return this.http.post(`${this.defaultUrl}`, drink, httpOptions);
   }
 
-  put(id: number, drink: Drink) {
+  update(id: number, drink: Drink) {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type':  'application/json',
         Authorization: 'Bearer ' + localStorage.getItem('currentToken')
       })
     }
-    return this.http.put(`${this.defaultUrl}/${id}`, drink, httpOptions);
+    return this.http.post(`${this.defaultUrl}`, drink, httpOptions);
   }
 
   delete(id:number) {
