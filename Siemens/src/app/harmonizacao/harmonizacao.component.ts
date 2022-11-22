@@ -15,6 +15,7 @@ export class HarmonizacaoComponent implements OnInit {
   public harmonizacaoForm!: FormGroup;
   public titulo = 'Harmonizacao';
   public harmonizacaoSelected: Harmonizacao;
+  public addHarmonizacao = false;
   public modeSave = 'post';
 
   public harmonizacoes : Harmonizacao[];
@@ -93,6 +94,7 @@ export class HarmonizacaoComponent implements OnInit {
   harmonizacaoSelect(harmonizacao: Harmonizacao) {
     this.modeSave = 'put';
     this.harmonizacaoSelected = harmonizacao;
+    this.addHarmonizacao = false;
     this.harmonizacaoForm.patchValue(harmonizacao);
   }
 
@@ -102,9 +104,14 @@ export class HarmonizacaoComponent implements OnInit {
   }
 
   voltar() {
-    this.harmonizacaoSelected = null;
+    this.addHarmonizacao = false;
   }
 
+  addHarmonizacaoTela() {
+    this.modeSave = 'post';
+    this.addHarmonizacao = true;
+    this.harmonizacaoSelected = null;
+  }
   
 
 }

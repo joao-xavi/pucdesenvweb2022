@@ -68,7 +68,7 @@
         </form>
       </div>
       <div [ngClass]="{'col-sm-6': clienteSelected, 'col-sm-12': !clienteSelected}">
-      <div *ngIf="!addCliente">
+    <div *ngIf="!addCliente">
 
       <div class="container">
         <div class="row align-items-center">
@@ -85,7 +85,6 @@
         <thead class="thead-light">
           <tr>
             <th scope="col">Visualizar</th>
-            <th scope="col">#</th>
             <th scope="col">Nome</th>
             <th scope="col">Login</th>
             <th scope="col">Excluir</th>
@@ -95,7 +94,6 @@
           <tr *ngFor="let cliente of clientes">
             <td><button (click)="clienteSelect(cliente)"
               class="text-dark btn btn-sm btn-outline-warning">Detalhe</button></td>
-            <td scope="row">{{cliente.id}}</td>
             <td>{{cliente.nome}}</td>
             <td>{{cliente.login}}</td>
             <td>

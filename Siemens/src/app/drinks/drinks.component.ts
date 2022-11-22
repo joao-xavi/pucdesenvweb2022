@@ -113,9 +113,10 @@ export class DrinksComponent implements OnInit {
     this.addDrink = null;
   }
 
-  addDrinks() {
+  addDrinksTela() {
     this.modeSave = 'post';
     this.addDrink = true;
+    this.drinkSelected = null;
   }
 
   

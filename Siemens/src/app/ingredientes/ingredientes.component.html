@@ -31,9 +31,20 @@
       </div>
     </form>
   </div>
+  <div *ngIf="!addIngredientes">
 
-  <div [ngClass]="{'col-sm-6': ingredientesSelected, 'col-sm-12': !ingredientesSelected}">
-    <app-titulo [titulo]="titulo"></app-titulo>
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-sm-6">
+        <app-titulo [titulo]="titulo"></app-titulo>
+        </div>
+        <div class="col-sm-6 align-items-center">
+        <button type="button" class="col-sm-3 btn btn-info" (click)="addIngredientesTela()">Adicionar Ingrediente</button>
+        </div>
+      </div>
+    </div>
+  <!-- <div [ngClass]="{'col-sm-6': ingredientesSelected, 'col-sm-12': !ingredientesSelected}">
+    <app-titulo [titulo]="titulo"></app-titulo> -->
 
     <table class="table table-hover">
       <thead class="thead-light">

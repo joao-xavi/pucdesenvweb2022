@@ -13,6 +13,7 @@ export class IngredientesComponent implements OnInit {
   public ingredientesForm!: FormGroup;
   public titulo = 'Ingredientes';
   public ingredientesSelected: Ingredientes;
+  public addIngredientes = false;
   public modeSave = 'post';
 
   public ingredientes: Ingredientes[];
@@ -89,6 +90,7 @@ export class IngredientesComponent implements OnInit {
   ingredientesSelect(ingredientes: Ingredientes) {
     this.modeSave = 'put';
     this.ingredientesSelected = ingredientes;
+    this.addIngredientes = false;
     this.ingredientesForm.patchValue(ingredientes);
   }
 
@@ -98,6 +100,12 @@ export class IngredientesComponent implements OnInit {
   }
 
   voltar() {
+    this.addIngredientes = false;
+  }
+
+  addIngredientesTela() {
+    this.modeSave = 'post';
+    this.addIngredientes = true;
     this.ingredientesSelected = null;
   }
 
