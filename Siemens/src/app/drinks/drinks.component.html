@@ -3,7 +3,7 @@
   <div class="col-sm-6" *ngIf="drinkSelected">
     <div class="row">
       <div class="mr-auto">
-        <app-titulo [titulo]="'Cód. Cliente: ' + drinkSelected.id"></app-titulo>
+        <app-titulo [titulo]="'Nome Cliente: ' + drinkSelected.nome"></app-titulo>
       </div>
       <div class="mt-1">
         <button class="btn btn-sm btn-outline-danger" (click)="voltar()">
@@ -26,7 +26,7 @@
         <input type="text" formControlName="categoria"  class="form-control">
       </div>
       <div class="form-group">
-        <label for="formGroupExampleInput2">Imagem</label>
+        <label for="formGroupExampleInput2">Link Imagem</label>
         <input type="text" formControlName="imagem"  class="form-control">
       </div>
       <div class="form-group">
@@ -43,11 +43,9 @@
       <thead class="thead-light">
         <tr>
           <th scope="col">Visualizar</th>
-          <th scope="col">#</th>
           <th scope="col">Nome</th>
-          <th scope="col">Descrição</th>
           <th scope="col">Categoria</th>
-          <th scope="col">Imagem </th>
+          <th scope="col">Descrição</th>       
           <th scope="col">Excluir</th>
         </tr>
       </thead>
@@ -55,11 +53,9 @@
         <tr *ngFor="let drink of drinks">
           <td><button (click)="drinkSelect(drink)"
             class="text-dark btn btn-sm btn-outline-warning">Detalhes</button></td>
-          <td scope="row">{{drink.id}}</td>
           <td>{{drink.nome}}</td>
           <td>{{drink.descricao}}</td>
           <td>{{drink.categoria}}</td>
-          <td>{{drink.imagem}}</td>
           <td>
             <div class="btn-group">
               <button (click)="drinkDelete(drink)" class="btn btn-sm btn-outline-danger">Excluir</button>

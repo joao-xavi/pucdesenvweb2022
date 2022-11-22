@@ -3,7 +3,7 @@
   <div class="col-sm-6" *ngIf="harmonizacaoSelected">
     <div class="row">
       <div class="mr-auto">
-        <app-titulo [titulo]="'Cód. Harmonizacao: ' + harmonizacaoSelected.id"></app-titulo>
+        <app-titulo [titulo]="'Nome Harmonização: ' + harmonizacaoSelected.nome"></app-titulo>
       </div>
       <div class="mt-1">
         <button class="btn btn-sm btn-outline-danger" (click)="voltar()">
@@ -22,8 +22,12 @@
         <input type="text" formControlName="descricao"  class="form-control">
       </div>
       <div class="form-group">
-        <label for="formGroupExampleInput2">Categoria</label>
-        <input type="password" formControlName="categoria"  class="form-control">
+        <label for="formGroupExampleInput2">Harmonização</label>
+        <input type="text" formControlName="bebida"  class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="formGroupExampleInput2">Link Imagem</label>
+        <input type="text" formControlName="imagem"  class="form-control">
       </div>
       <div class="form-group">
         <hr>
@@ -39,9 +43,9 @@
       <thead class="thead-light">
         <tr>
           <th scope="col">Visualizar</th>
-          <th scope="col">#</th>
           <th scope="col">Nome</th>
           <th scope="col">Descrição</th>
+          <th scope="col">Harmonização</th>
           <th scope="col">Excluir</th>
         </tr>
       </thead>
@@ -49,11 +53,9 @@
         <tr *ngFor="let harmonizacao of harmonizacoes">
           <td><button (click)="harmonizacaoSelect(harmonizacao)"
             class="text-dark btn btn-sm btn-outline-warning">Detalhe</button></td>
-          <td scope="row">{{harmonizacao.id}}</td>
           <td>{{harmonizacao.nome}}</td>
           <td>{{harmonizacao.descricao}}</td>
-          <td>{{harmonizacao.categoria}}</td>
-          <td>{{harmonizacao.imagem}}</td>
+          <td>{{harmonizacao.bebida}}</td>
           <td>
             <div class="btn-group">
               <button (click)="harmonizacaoDelete(harmonizacao)" class="btn btn-sm btn-outline-danger">Excluir</button>
@@ -63,6 +65,5 @@
       </tbody>
     </table>
   </div>
-
 </div>
 

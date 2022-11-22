@@ -13,6 +13,7 @@ import { IngredientesComponent } from './ingredientes/ingredientes.component';
 import { HarmonizacaoComponent } from './harmonizacao/harmonizacao.component';
 import { DrinksComponent } from './drinks/drinks.component';
 import { LoginComponent } from './autenticacao/login/login.component';
+import { DrinkComponent1 } from './drinks2/drinks.component.1';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
@@ -28,7 +29,8 @@ import {NoopAnimationsModule} from '@angular/platform-browser/animations';
       IngredientesComponent,
       HarmonizacaoComponent,
       DrinksComponent,
-      LoginComponent
+      LoginComponent,
+      DrinkComponent1
    ],
   imports: [
     BrowserModule,

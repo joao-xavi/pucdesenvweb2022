@@ -44,7 +44,8 @@ export class HarmonizacaoComponent implements OnInit {
       id: [''],
       nome: [''],
       descricao: [''],
-      categoria: [''],
+      bebida: [''],
+      imagem: [''],
 
     });
   }

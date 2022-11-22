@@ -1,0 +1,15 @@
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<div class="wrapper">
+  <div class="card" style="width: 18rem;" *ngFor="let drink of drinks">
+    <img class="card-img-top" src= {{drink.imagem}} alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{drink.nome}}</h5>
+      <p class="card-text">{{drink.categoria}}</p>
+      <p class="card-text">{{drink.descricao}}</p>
+      <a href="#" class="btn btn-primary">Acessar</a> 
+    </div>
+  </div>
+</div>

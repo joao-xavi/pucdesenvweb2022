@@ -2,6 +2,6 @@ export class Harmonizacao {
     id: number;
     nome: string;
     descricao: string;
-    categoria: string;
+    bebida: string;
     imagem: string;
 }

@@ -5,6 +5,7 @@ import { DrinksComponent } from './drinks/drinks.component';
 import { HarmonizacaoComponent } from './harmonizacao/harmonizacao.component';
 import { IngredientesComponent } from './ingredientes/ingredientes.component';
 import { LoginComponent } from './autenticacao/login/login.component';
+import { DrinkComponent1 } from './drinks2/drinks.component.1';
 
 const routes: Routes = [
   { path: 'clientes', component: ClientesComponent },
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'harmonizacao', component: HarmonizacaoComponent },
   { path: 'drinks', component: DrinksComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'drinks2', component: DrinkComponent1 },
 
 
 
