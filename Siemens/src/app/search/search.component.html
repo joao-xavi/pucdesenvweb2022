@@ -1,4 +1,6 @@
 <div class="search-container">
- <span>Search:</span>
- <input type="text" [(ngModel)]="enteredSearchValue" (input)="onSearchTextChanged()">
+  <div id="logo" class="text-center padding-bottom">
+    <h1>Drincoteca</h1><p>Busque aqui sua bebida</p>
+    </div>
+ <input class="form-control mx-auto pb-2" type="text" [(ngModel)]="enteredSearchValue" (input)="onSearchTextChanged()">
 </div>
