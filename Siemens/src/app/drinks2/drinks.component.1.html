@@ -1,10 +1,10 @@
 
-<div class="p-3 m-3">
+<div class="p-3 text-center">
   <app-search (searchTextChanged)="onSearchTextEntered($event)"></app-search>
 </div>
-<div class="wrapper"> 
+<div class="wrapper justify-content-center"> 
     <div class="card" style="width: 18rem;" *ngFor="let drink of drinks">
-      <div class="wrapper" *ngIf="searchText === '' || drink.nome.toLowerCase().includes(searchText) || drink.categoria.toLowerCase().includes(searchText) || drink.descricao.toLowerCase().includes(searchText)">
+      <div class="flex-wrap text-center" *ngIf="searchText === '' || drink.nome.toLowerCase().includes(searchText) || drink.categoria.toLowerCase().includes(searchText) || drink.descricao.toLowerCase().includes(searchText)">
         <img class="card-img-top" src= {{drink.imagem}} alt="Card image cap">
         <div class="card-body">
           <h5 class="card-title">{{drink.nome}}</h5>

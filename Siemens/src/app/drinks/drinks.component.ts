@@ -108,16 +108,20 @@ export class DrinksComponent implements OnInit {
 
   voltar() {
     this.drinkSelected = null;
+    this.addDrink = null;
   }
 
   voltarAdd() {
     this.addDrink = null;
+    this.drinkSelected = null;
+
   }
 
   addDrinksTela() {
     this.modeSave = 'post';
     this.addDrink = true;
     this.drinkSelected = null;
+
   }
 
   
