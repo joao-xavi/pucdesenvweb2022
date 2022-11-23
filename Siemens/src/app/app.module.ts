@@ -18,10 +18,11 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
+import { SearchComponent } from './search/search.component';
 
 
 @NgModule({
-  declarations: [							
+  declarations: [								
     AppComponent,
     ClientesComponent,
     NavComponent,
@@ -30,7 +31,8 @@ import {NoopAnimationsModule} from '@angular/platform-browser/animations';
       HarmonizacaoComponent,
       DrinksComponent,
       LoginComponent,
-      DrinkComponent1
+      DrinkComponent1,
+      SearchComponent
    ],
   imports: [
     BrowserModule,
