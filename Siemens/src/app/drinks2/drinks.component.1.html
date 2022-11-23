@@ -1,5 +1,7 @@
 
-<app-search (searchTextChanged)="onSearchTextEntered($event)"></app-search>
+<div class="p-3 m-3">
+  <app-search (searchTextChanged)="onSearchTextEntered($event)"></app-search>
+</div>
 <div class="wrapper"> 
     <div class="card" style="width: 18rem;" *ngFor="let drink of drinks">
       <div class="wrapper" *ngIf="searchText === '' || drink.nome.toLowerCase().includes(searchText) || drink.categoria.toLowerCase().includes(searchText) || drink.descricao.toLowerCase().includes(searchText)">
